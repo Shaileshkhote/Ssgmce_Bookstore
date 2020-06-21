@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "308822495194",
+    "firebase_url": "https://bookstore-app-cfaac.firebaseio.com",
+    "project_id": "bookstore-app-cfaac",
+    "storage_bucket": "bookstore-app-cfaac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308822495194:android:7dbdf201b8b69cf3f5fae3",
+        "android_client_info": {
+          "package_name": "com.comparedost.ssgmce_bookstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "308822495194-fnmhfmn2up2gd236j47k42h8k95l8d78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqWW_CzKvYk93p5ZuZy-9VxHMMSfAR0Mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "308822495194-fnmhfmn2up2gd236j47k42h8k95l8d78.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
