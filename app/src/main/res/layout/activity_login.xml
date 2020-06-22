@@ -26,7 +26,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_email_black_24dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:errorEnabled="true">
 
@@ -52,7 +51,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:hint="Password"
-        android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
@@ -61,7 +59,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernamelayout"
-        app:startIconDrawable="@drawable/ic_lock_black_24dp" >
+       >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
