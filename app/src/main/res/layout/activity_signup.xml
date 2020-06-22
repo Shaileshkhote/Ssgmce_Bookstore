@@ -44,10 +44,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/reg_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Full Name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:hint="Full Name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fullname"
@@ -143,10 +143,10 @@
         android:id="@+id/go_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GO"
         android:background="#000"
+        android:text="Register"
         android:textColor="#fff"
-        android:transitionName="button_tran"/>
+        android:transitionName="button_tran" />
 
     <Button
         android:id="@+id/reg_log_btn"

@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordedit=findViewById(R.id.PasswordEditText);
         usernameedit=findViewById(R.id.Login);
         login_btn = findViewById(R.id.login_btn);
+        callSignUp=findViewById(R.id.callSignUp);
         username = findViewById(R.id.username);
           password = findViewById(R.id.password);
 
@@ -51,6 +52,14 @@ public class LoginActivity extends AppCompatActivity {
 
         mauth=FirebaseAuth.getInstance();
         CurrentUser=mauth.getCurrentUser();
+
+        callSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this,SignupActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -78,8 +87,14 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                Intent i=new Intent(LoginActivity.this,MainActivity.class);
-                                startActivity(i);
+
+                                if(CurrentUser.isEmailVerified()) {
+                                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(i);
+                                }
+                                else{
+                                    Toast.makeText(LoginActivity.this, "Please Verify Email ", Toast.LENGTH_SHORT).show();
+                                }
 
                             }
                             else{

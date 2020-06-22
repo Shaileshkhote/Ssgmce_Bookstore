@@ -1,6 +1,154 @@
 package com.comparedost.ssgmce_bookstore;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SignupActivity extends AppCompatActivity {
+    TextInputEditText email,username,phoneno,name,password;
+    TextInputLayout emaillout,usernamelout,phonenolout,namelout,passwordlout;
+    Button Register_btn,Signin_btn;
+
+    private FirebaseAuth mauth;
+    private FirebaseDatabase mydb;
+    private DatabaseReference myref;
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState); //This Line will hide the status bar from the screen
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_signup);
+
+        email=findViewById(R.id.email);
+        username=findViewById(R.id.username);
+        phoneno=findViewById(R.id.phone);
+        name=findViewById(R.id.fullname);
+        password=findViewById(R.id.password);
+
+        emaillout=findViewById(R.id.reg_email);
+        usernamelout=findViewById(R.id.reg_username);
+        phonenolout=findViewById(R.id.reg_phoneNo);
+        namelout=findViewById(R.id.reg_name);
+        passwordlout=findViewById(R.id.reg_password);
+
+        Register_btn=findViewById(R.id.go_btn);
+        Signin_btn=findViewById(R.id.reg_log_btn);
+
+        mauth=FirebaseAuth.getInstance();
+        mydb=FirebaseDatabase.getInstance();
+        myref=mydb.getReference("Users");
+
+
+
+
+        Register_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if((email.getText().toString().isEmpty())){
+                    emaillout.setError("Email Needed");
+
+                }
+                if((phoneno.getText().toString().isEmpty())){
+                    phonenolout.setError("Phone No Needed");
+
+                }
+                if((username.getText().toString().isEmpty())){
+                    usernamelout.setError("Username Needed");
+
+                }
+                if((name.getText().toString().isEmpty())){
+                    namelout.setError("Name Needed");
+
+                }
+                if((password.getText().toString().isEmpty())){
+                    passwordlout.setError("Password");
+
+
+//                    if((!(email.getText().toString().isEmpty())) && (!(username.getText().toString().isEmpty())) &&
+//                            (!(password.getText().toString().isEmpty()))&& (!(name.getText().toString().isEmpty())) &&
+//                            (!(phoneno.getText().toString().isEmpty()))  )
+                            if(!(email.getText().toString().isEmpty())){
+
+                        mauth.createUserWithEmailAndPassword((email.getText().toString()),(password.getText().toString())).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                if(authResult != null){
+                                    mauth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful()){
+                                                Toast.makeText(SignupActivity.this, "Verification Link Send", Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        }
+                                    });
+
+                                    UserProfileChangeRequest updateProfile=new UserProfileChangeRequest.Builder().setDisplayName((name.getText().toString())).build();
+                                    mauth.getCurrentUser().updateProfile(updateProfile);
+
+                                    myref.child(name.getText().toString()).setValue(name.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful()){
+
+                                                myref.child(name.getText().toString()).child("Email").setValue(email.getText().toString());
+                                                myref.child(name.getText().toString()).child("Phone").setValue(phoneno.getText().toString());
+                                                myref.child(name.getText().toString()).child("Name").setValue(name.getText().toString());
+                                                myref.child(name.getText().toString()).child("UserName").setValue(username.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if(task.isSuccessful()){
+                                                            Toast.makeText(SignupActivity.this, "Registered Succesfully !!", Toast.LENGTH_SHORT).show();
+
+                                                            Handler handler=new Handler();
+
+                                                            handler.postDelayed(new Runnable() {
+                                                                @Override
+                                                                public void run() {
+                                                                    Intent i=new Intent(SignupActivity.this, LoginActivity.class);
+                                                                    startActivity(i);
+                                                                }
+                                                            },500);
+                                                        }
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    });
+
+
+                                }
+                            }
+                        });
+
+
+                    }
+
+                }
+            }
+        });
+
+
+    }
+
+
 }
