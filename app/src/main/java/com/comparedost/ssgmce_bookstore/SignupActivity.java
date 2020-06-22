@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,8 @@ public class SignupActivity extends AppCompatActivity {
     TextInputEditText email,username,phoneno,name,password;
     TextInputLayout emaillout,usernamelout,phonenolout,namelout,passwordlout;
     Button Register_btn,Signin_btn;
+    ProgressBar progressbar;
+    private String emailstr,usernamestr,passstr,phonestr,namestr;
 
     private FirebaseAuth mauth;
     private FirebaseDatabase mydb;
@@ -53,6 +56,8 @@ public class SignupActivity extends AppCompatActivity {
         Register_btn=findViewById(R.id.go_btn);
         Signin_btn=findViewById(R.id.reg_log_btn);
 
+        progressbar=findViewById(R.id.progressBar);
+
         mauth=FirebaseAuth.getInstance();
         mydb=FirebaseDatabase.getInstance();
         myref=mydb.getReference("Users");
@@ -63,6 +68,13 @@ public class SignupActivity extends AppCompatActivity {
         Register_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                emailstr=email.getText().toString();
+                usernamestr=username.getText().toString();
+                passstr=password.getText().toString();
+                namestr=name.getText().toString();
+                phonestr=phoneno.getText().toString();
+
                 if((email.getText().toString().isEmpty())){
                     emaillout.setError("Email Needed");
 
@@ -79,16 +91,19 @@ public class SignupActivity extends AppCompatActivity {
                     namelout.setError("Name Needed");
 
                 }
-                if((password.getText().toString().isEmpty())){
+                if((password.getText().toString().isEmpty())) {
                     passwordlout.setError("Password");
+                }
 
 
 //                    if((!(email.getText().toString().isEmpty())) && (!(username.getText().toString().isEmpty())) &&
 //                            (!(password.getText().toString().isEmpty()))&& (!(name.getText().toString().isEmpty())) &&
 //                            (!(phoneno.getText().toString().isEmpty()))  )
-                            if(!(email.getText().toString().isEmpty())){
+                            if(!(emailstr.isEmpty())  && !(usernamestr.isEmpty())  && !(phonestr.isEmpty()) &&!(namestr.isEmpty())  &&!(passstr.isEmpty())){
+                                Toast.makeText(SignupActivity.this, emailstr, Toast.LENGTH_SHORT).show();
+                                progressbar.setVisibility(View.VISIBLE);
 
-                        mauth.createUserWithEmailAndPassword((email.getText().toString()),(password.getText().toString())).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        mauth.createUserWithEmailAndPassword(emailstr,passstr).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 if(authResult != null){
@@ -110,15 +125,15 @@ public class SignupActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
 
-                                                myref.child(name.getText().toString()).child("Email").setValue(email.getText().toString());
-                                                myref.child(name.getText().toString()).child("Phone").setValue(phoneno.getText().toString());
-                                                myref.child(name.getText().toString()).child("Name").setValue(name.getText().toString());
-                                                myref.child(name.getText().toString()).child("UserName").setValue(username.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                myref.child(namestr).child("Email").setValue(emailstr);
+                                                myref.child(namestr).child("Phone").setValue(phonestr);
+                                                myref.child(namestr).child("Name").setValue(namestr);
+                                                myref.child(namestr).child("UserName").setValue(usernamestr).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Void> task) {
                                                         if(task.isSuccessful()){
                                                             Toast.makeText(SignupActivity.this, "Registered Succesfully !!", Toast.LENGTH_SHORT).show();
-
+                                                            progressbar.setVisibility(View.GONE);
                                                             Handler handler=new Handler();
 
                                                             handler.postDelayed(new Runnable() {
@@ -126,8 +141,9 @@ public class SignupActivity extends AppCompatActivity {
                                                                 public void run() {
                                                                     Intent i=new Intent(SignupActivity.this, LoginActivity.class);
                                                                     startActivity(i);
+
                                                                 }
-                                                            },500);
+                                                            },3000);
                                                         }
                                                     }
                                                 });
@@ -144,7 +160,7 @@ public class SignupActivity extends AppCompatActivity {
                     }
 
                 }
-            }
+
         });
 
 
