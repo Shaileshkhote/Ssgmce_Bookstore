@@ -14,9 +14,9 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 public class MainActivity extends AppCompatActivity {
     private final static int ID_HOME = 1;
-    private final static int ID_STATEWISE = 2;
-    private final static int ID_CARE = 3;
-    private final static int ID_INFO = 4;
+    private final static int ID_CATEGORIES = 2;
+    private final static int ID_CART = 3;
+    private final static int ID_PROFILE = 4;
 
 
     @Override
@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         MeowBottomNavigation bottomNavigation = findViewById(R.id.bottomNavigation);
 
         bottomNavigation.add(new MeowBottomNavigation.Model(ID_HOME, R.drawable.ic_baseline_home_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(ID_STATEWISE, R.drawable.categories_icon));
-        bottomNavigation.add(new MeowBottomNavigation.Model(ID_CARE, R.drawable.ic_baseline_shopping_cart_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(ID_INFO, R.drawable.profile_icon));
+        bottomNavigation.add(new MeowBottomNavigation.Model(ID_CATEGORIES, R.drawable.categories_icon));
+        bottomNavigation.add(new MeowBottomNavigation.Model(ID_CART, R.drawable.ic_baseline_shopping_cart_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(ID_PROFILE, R.drawable.profile_icon));
 
 
 //        bottomNavigation.setCount(ID_NOTIFICATION, "115");
@@ -47,15 +47,19 @@ public class MainActivity extends AppCompatActivity {
                         fragment= new HomeFragment();
                         break;
 
-                    case ID_CARE :
-                        fragment= new CategoriesFragment();
-                        break;
-                    case ID_INFO :
+                    case ID_CART :
+
                         fragment= new CartFragment();
                         break;
-                    case ID_STATEWISE :
-                        fragment= new ProfileFragment();
+
+                    case ID_PROFILE :
+
+                         fragment= new ProfileFragment();
                         break;
+                    case ID_CATEGORIES :
+                        fragment= new CategoriesFragment();
+                        break;
+
 
                     default:
                         name = "";
@@ -76,15 +80,19 @@ public class MainActivity extends AppCompatActivity {
                         fragment= new HomeFragment();
                         break;
 
-                    case ID_CARE :
-                        fragment= new CategoriesFragment();
-                        break;
-                    case ID_INFO :
+                    case ID_CART :
+
                         fragment= new CartFragment();
                         break;
-                    case ID_STATEWISE :
+
+                    case ID_PROFILE :
+
                         fragment= new ProfileFragment();
                         break;
+                    case ID_CATEGORIES :
+                        fragment= new CategoriesFragment();
+                        break;
+
 
                     default:
                         name = "";
