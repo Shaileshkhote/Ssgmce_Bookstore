@@ -38,7 +38,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="468dp">
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -135,7 +135,7 @@
                     android:inputType="number"
                     android:selectAllOnFocus="false"
                     android:singleLine="false"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textColorHint="#232222" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -146,7 +146,10 @@
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:transitionName="password_tran"
-                app:passwordToggleEnabled="true">
+                app:hintTextColor="#FFFFFF"
+                app:passwordToggleEnabled="true"
+                app:prefixTextColor="#FFFFFF"
+                app:suffixTextColor="#FFFFFF">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"
@@ -172,7 +175,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00000000"
-                android:onClick="callSign"
                 android:text="Already have an account? LogIn" />
 
         </LinearLayout>
