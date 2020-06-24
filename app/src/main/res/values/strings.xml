@@ -15,4 +15,6 @@
     <string name="category">Categories</string>
     <string name="my_orders">My  Orders</string>
     <string name="contact">Contact Us</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
