@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-      Button callSignUp, login_btn,resendemail,forgotpass;
+      Button callSignUp, login_btn;
 //    ImageView image;
 //    TextView logoText, sloganText;
     TextInputLayout username, password;
@@ -43,8 +43,6 @@ public class LoginActivity extends AppCompatActivity {
         usernameedit=findViewById(R.id.Login);
         login_btn = findViewById(R.id.login_btn);
         callSignUp=findViewById(R.id.callSignUp);
-        forgotpass=findViewById(R.id.forgotpass);
-        resendemail=findViewById(R.id.resendemail);
         username = findViewById(R.id.username);
           password = findViewById(R.id.password);
 
@@ -60,33 +58,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(LoginActivity.this,SignupActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        resendemail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CurrentUser.sendEmailVerification();
-                Toast.makeText(LoginActivity.this, "Verification Link Send", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        forgotpass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if((usernameedit.getText().toString().isEmpty())){
-
-                    username.setError("Username Needed");
-
-                }       if(!(usernameedit.getText().toString().isEmpty())){
-
-                    mauth.sendPasswordResetEmail(usernameedit.getText().toString());
-                    Toast.makeText(LoginActivity.this, "Password Reset Link Send ", Toast.LENGTH_SHORT).show();
-
-                }
-
-
             }
         });
 
@@ -139,12 +110,10 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onStart(){
         super.onStart();
-        if(CurrentUser.isEmailVerified()) {
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+        if (CurrentUser != null){
+            Intent i=new Intent(LoginActivity.this,MainActivity.class);
             startActivity(i);
-        }
-        else{
-            Toast.makeText(LoginActivity.this, "Please Verify Email ", Toast.LENGTH_SHORT).show();
+
         }
     }
 }
