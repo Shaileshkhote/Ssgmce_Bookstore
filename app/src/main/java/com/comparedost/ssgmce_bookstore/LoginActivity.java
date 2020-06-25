@@ -110,9 +110,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onStart(){
         super.onStart();
-        if (CurrentUser != null){
-            Intent i=new Intent(LoginActivity.this,MainActivity.class);
+
+        if (CurrentUser != null) {
+            if(CurrentUser.isEmailVerified()) {
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(i);
+        }
 
         }
     }

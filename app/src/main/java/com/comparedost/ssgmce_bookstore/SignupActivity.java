@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
     TextInputLayout emaillout,usernamelout,phonenolout,namelout,passwordlout;
     Button Register_btn,Signin_btn;
     ProgressBar progressbar;
-    private String emailstr,usernamestr,passstr,phonestr,namestr;
+    private String emailstr,usernamestr,passstr,phonestr,namestr,userUID;
 
     private FirebaseAuth mauth;
     private FirebaseDatabase mydb;
@@ -95,10 +95,6 @@ public class SignupActivity extends AppCompatActivity {
                     passwordlout.setError("Password");
                 }
 
-
-//                    if((!(email.getText().toString().isEmpty())) && (!(username.getText().toString().isEmpty())) &&
-//                            (!(password.getText().toString().isEmpty()))&& (!(name.getText().toString().isEmpty())) &&
-//                            (!(phoneno.getText().toString().isEmpty()))  )
                             if(!(emailstr.isEmpty())  && !(usernamestr.isEmpty())  && !(phonestr.isEmpty()) &&!(namestr.isEmpty())  &&!(passstr.isEmpty())){
                                 Toast.makeText(SignupActivity.this, emailstr, Toast.LENGTH_SHORT).show();
                                 progressbar.setVisibility(View.VISIBLE);
@@ -119,16 +115,17 @@ public class SignupActivity extends AppCompatActivity {
 
                                     UserProfileChangeRequest updateProfile=new UserProfileChangeRequest.Builder().setDisplayName((name.getText().toString())).build();
                                     mauth.getCurrentUser().updateProfile(updateProfile);
+                                    userUID=mauth.getCurrentUser().getUid();
 
-                                    myref.child(name.getText().toString()).setValue(name.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    myref.child(userUID).setValue(userUID).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
 
-                                                myref.child(namestr).child("Email").setValue(emailstr);
-                                                myref.child(namestr).child("Phone").setValue(phonestr);
-                                                myref.child(namestr).child("Name").setValue(namestr);
-                                                myref.child(namestr).child("UserName").setValue(usernamestr).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                myref.child(userUID).child("Email").setValue(emailstr);
+                                                myref.child(userUID).child("Phone").setValue(phonestr);
+                                                myref.child(userUID).child("Name").setValue(namestr);
+                                                myref.child(userUID).child("UserName").setValue(usernamestr).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Void> task) {
                                                         if(task.isSuccessful()){
