@@ -1,5 +1,6 @@
 package com.comparedost.ssgmce_bookstore;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -71,5 +72,6 @@ public class ProfileFragment extends Fragment {
 
 
         return view;
+
     }
 }

@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
     private String offerprice[]={"100","100","100","100","100"};
 
     private int categoryimage[]={R.drawable.profile,R.drawable.profile,R.drawable.profile,R.drawable.profile,R.drawable.profile};
-    private  String categoryname[]={"IT Branch","CSE Branch","ENTC Branch","EE Branch","MECH Branch"};
+    private  String categoryname[]={"IT ","CSE ","ENTC ","EE ","MECH"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

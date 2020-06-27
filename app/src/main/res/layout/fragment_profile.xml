@@ -31,33 +31,39 @@
         android:background="@drawable/bg">
 
         <ImageView
-            android:id="@+id/profile_photo"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="18dp"
-            android:src="@drawable/profile"></ImageView>
+        android:id="@+id/book_store"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="18dp"
+        android:src="@drawable/profile"></ImageView>
 
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="18dp"
-            android:layout_toRightOf="@+id/profile_photo"
+            android:layout_alignTop="@+id/book_store"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="-7dp"
+            android:layout_toRightOf="@+id/book_store"
             android:fontFamily="@font/roboto_regular"
             android:textColor="#ffff"
             android:textSize="22dp"></TextView>
 
         <TextView
             android:id="@+id/number"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/username"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="12dp"
+
+            android:layout_alignStart="@+id/username"
+            android:layout_alignEnd="@+id/username"
+            android:layout_alignBottom="@+id/book_store"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="8dp"
-            android:layout_toRightOf="@+id/profile_photo"
+            android:layout_marginEnd="-13dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toRightOf="@+id/book_store"
             android:fontFamily="@font/roboto_regular"
             android:textColor="#ffff"
             android:textSize="16dp"></TextView>
@@ -82,7 +88,7 @@
         </ImageView>
 
         <TextView
-            android:id="@+id/my_profile"
+            android:id="@+id/email_us"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -208,22 +214,26 @@
 
     </RelativeLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="371dp"
-        android:layout_height="257dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/containedButton"
-            android:layout_width="117dp"
-            android:layout_height="51dp"
-            android:background="#0F8DF1"
+            android:id="@+id/containedButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:background="#168EEF"
             android:text="Log Out"
+            app:iconPadding="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.924" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintVertical_bias="0.723"
+            app:rippleColor="#0B2BDD" />
+    </LinearLayout>
 
 
 </LinearLayout>

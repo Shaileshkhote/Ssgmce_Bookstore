@@ -72,7 +72,6 @@
                     android:id="@+id/fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Full Name"
                     android:inputType="text"
                     android:textColor="#000000"
                     android:textColorHint="#232222" />
@@ -91,7 +90,6 @@
                     android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Username"
                     android:inputType="text"
                     android:shadowColor="#000000"
                     android:textColor="#000000"
@@ -113,7 +111,6 @@
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email"
                     android:inputType="textEmailAddress"
                     android:textColor="#000000"
                     android:textColorHint="#232222" />
@@ -131,7 +128,6 @@
                     android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Phone No"
                     android:inputType="number"
                     android:selectAllOnFocus="false"
                     android:singleLine="false"
@@ -155,7 +151,6 @@
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password"
                     android:inputType="textPassword"
                     android:textColor="#000000"
                     android:textColorHint="#232222"></com.google.android.material.textfield.TextInputEditText>
