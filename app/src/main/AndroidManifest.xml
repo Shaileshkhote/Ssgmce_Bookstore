@@ -4,6 +4,7 @@
     package="com.comparedost.ssgmce_bookstore">
 
     <dist:module dist:instant="true" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,21 +14,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SplashScreen"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
-
-        <activity android:name=".SignupActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".SignupActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
