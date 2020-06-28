@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
 
-                                if(CurrentUser.isEmailVerified()) {
+                                if(mauth.getCurrentUser().isEmailVerified()) {
                                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(i);
                                 }
