@@ -4,19 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+<<<<<<<<< Temporary merge branch 1
+=========
 import android.app.ActivityOptions;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+>>>>>>>>> Temporary merge branch 2
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -36,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState); //This Line will hide the status bar from the screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
@@ -60,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        onBackPressed();
 
 
 
@@ -88,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
 
-                                if(CurrentUser.isEmailVerified()) {
+                                if(mauth.getCurrentUser().isEmailVerified()) {
                                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(i);
                                 }
@@ -118,5 +123,23 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         }
+    }
+
+    
+    public  void onBackPressed(){ 
+        super.onBackPressed();
+
+        new AlertDialog.Builder(this)
+                .setTitle("Message")
+                .setMessage("Do you want to exit app?")
+                .setNegativeButton("NO", null)
+                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        LoginActivity.super.onBackPressed();
+                    }
+                }).create().show();
+
+
     }
 }
