@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
@@ -38,8 +36,6 @@ public class LoginActivity extends AppCompatActivity {
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState); //This Line will hide the status bar from the screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
@@ -64,8 +60,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        onBackPressed();
 
 
 
@@ -124,23 +118,5 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         }
-    }
-
-    
-    public  void onBackPressed(){ 
-        super.onBackPressed();
-
-        new AlertDialog.Builder(this)
-                .setTitle("Message")
-                .setMessage("Do you want to exit app?")
-                .setNegativeButton("NO", null)
-                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        LoginActivity.super.onBackPressed();
-                    }
-                }).create().show();
-
-
     }
 }
