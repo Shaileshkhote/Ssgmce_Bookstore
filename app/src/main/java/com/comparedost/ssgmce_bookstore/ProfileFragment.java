@@ -29,8 +29,6 @@ public class ProfileFragment extends Fragment {
     private DatabaseReference myref;
     private FirebaseAuth mauth;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,12 +64,9 @@ public class ProfileFragment extends Fragment {
 
 
            }
+
        });
-
-
-
-
-        return view;
-
+    return view;
     }
+
 }
