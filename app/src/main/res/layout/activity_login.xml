@@ -55,12 +55,12 @@
                 android:id="@+id/Login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username"
                 android:selectAllOnFocus="false"
                 android:shadowColor="#000000"
                 android:singleLine="false"
                 android:textColor="#000000"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:visibility="visible" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -75,14 +75,13 @@
                 android:id="@+id/PasswordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
                 android:inputType="textPassword"
-                app:passwordToggleEnabled="true"
                 android:keepScreenOn="false"
                 android:password="true"
                 android:singleLine="false"
                 android:textColor="#070707"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                app:passwordToggleEnabled="true" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
