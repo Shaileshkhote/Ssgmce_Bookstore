@@ -75,6 +75,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
+            android:backgroundTint="#00b0ff"
             app:cardCornerRadius="5dp"
             app:cardElevation="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +88,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/e_c_gradient">
+                android:backgroundTint="#00b0ff">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/e_c_recycleview"
@@ -147,20 +148,22 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#ff4081"
             app:cardCornerRadius="5dp"
             app:cardElevation="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
 
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/categoriestextview"
             app:layout_constraintVertical_bias="0.04">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/catgradient">
+                android:backgroundTint="#90a4ae">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/categories_recycleview"
                     android:layout_width="match_parent"
@@ -171,9 +174,6 @@
                     android:layout_marginBottom="10dp" />
 
             </LinearLayout>
-
-
-
 
 
         </androidx.cardview.widget.CardView>
