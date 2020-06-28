@@ -73,6 +73,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/myprofilelistner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp">
@@ -109,6 +110,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/myorderslistener"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp">
@@ -179,6 +181,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/contactuslistener"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp">
@@ -220,7 +223,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/containedButton2"
+            android:id="@+id/logoutlistener"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"

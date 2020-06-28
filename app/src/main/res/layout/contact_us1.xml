@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:backgroundTint="#FAFAFA"
-    android:duplicateParentState="false">
+    android:duplicateParentState="false"
+    android:foregroundGravity="center_vertical|center|center_horizontal">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -31,7 +32,6 @@
         android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.964"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.0">
@@ -39,22 +39,23 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="372dp"
-            android:layout_height="69dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
+            android:foregroundGravity="center_vertical|center|center_horizontal"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/occupation_textview"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="0.067">
 
             <ImageView
                 android:id="@+id/email_imageview"
-                android:layout_width="29dp"
-                android:layout_height="44dp"
+                android:layout_width="35dp"
+                android:layout_height="51dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
@@ -79,13 +80,14 @@
 
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_width="337dp"
-            android:layout_height="50dp"
+            android:layout_width="357dp"
+            android:layout_height="57dp"
             android:layout_marginStart="8dp"
+            android:foregroundGravity="center_vertical|center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.21"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             app:layout_constraintVertical_bias="0.0">
@@ -93,8 +95,8 @@
 
             <ImageView
                 android:id="@+id/phone_imageview"
-                android:layout_width="29dp"
-                android:layout_height="match_parent"
+                android:layout_width="28dp"
+                android:layout_height="34dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
@@ -106,12 +108,12 @@
 
             <TextView
                 android:id="@+id/phone_textview"
-                android:layout_width="239dp"
-                android:layout_height="wrap_content"
+                android:layout_width="161dp"
+                android:layout_height="31dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="184dp"
-                android:text="Phone no"
+                android:text="+91 8770540346"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.031"
@@ -124,14 +126,12 @@
             android:id="@+id/occupation_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal|center_vertical"
             android:text="Shegaon"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.442"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.015" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -140,33 +140,35 @@
         android:layout_width="149dp"
         android:layout_height="56dp"
         android:fontFamily="sans-serif-smallcaps"
+        android:gravity="center|center_horizontal|center_vertical"
         android:text="Contact us"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-        app:layout_constraintEnd_toEndOf="@+id/imageView9"
-        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.168" />
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="299dp"
+        android:layout_width="wrap_content"
         android:layout_height="47dp"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.19"
+        app:layout_constraintVertical_bias="0.208"
         app:srcCompat="@drawable/minus" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="211dp"
         android:layout_height="96dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="24dp"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

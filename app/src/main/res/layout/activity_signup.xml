@@ -39,8 +39,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="468dp">
-
-        <ProgressBar
+    <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
@@ -173,6 +172,8 @@
                 android:text="Already have an account? LogIn" />
 
         </LinearLayout>
+
+
     </RelativeLayout>
 
 </LinearLayout>
