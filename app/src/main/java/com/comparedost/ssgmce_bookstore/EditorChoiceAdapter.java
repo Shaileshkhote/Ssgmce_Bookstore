@@ -20,7 +20,7 @@ public class EditorChoiceAdapter extends RecyclerView.Adapter<EditorChoiceAdapte
         this.context=context;
         this.listitems=listitems;
     }
-    public class ViewHolder extends RecyclerView.ViewHolder {
+        public class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView prodimage;
         private TextView prodname,semester,branch,orignalprice,offerprice;
@@ -54,12 +54,7 @@ public class EditorChoiceAdapter extends RecyclerView.Adapter<EditorChoiceAdapte
             holder.offerprice.setText(listitems.get(position).getOfferprice());
 
         }catch (NullPointerException e){};
-
-
-
-
-
-    }
+      }
 
     @Override
     public int getItemCount() {

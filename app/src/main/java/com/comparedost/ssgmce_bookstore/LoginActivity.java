@@ -25,14 +25,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-      Button callSignUp, login_btn;
-//    ImageView image;
+    Button callSignUp, login_btn;
+    //    ImageView image;
 //    TextView logoText, sloganText;
     TextInputLayout username, password;
-    TextInputEditText passwordedit,usernameedit;
-    String usernamefromedittext,passwordfromedt;
+    TextInputEditText passwordedit, usernameedit;
+    String usernamefromedittext, passwordfromedt;
     FirebaseAuth mauth;
     FirebaseUser CurrentUser;
+
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,67 +42,56 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState); //This Line will hide the status bar from the screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
-        passwordedit=findViewById(R.id.PasswordEditText);
-        usernameedit=findViewById(R.id.Login);
+        passwordedit = findViewById(R.id.PasswordEditText);
+        usernameedit = findViewById(R.id.Login);
         login_btn = findViewById(R.id.login_btn);
-        callSignUp=findViewById(R.id.callSignUp);
+        callSignUp = findViewById(R.id.callSignUp);
         username = findViewById(R.id.username);
-          password = findViewById(R.id.password);
+        password = findViewById(R.id.password);
 
 
-
-
-
-        mauth=FirebaseAuth.getInstance();
-        CurrentUser=mauth.getCurrentUser();
+        mauth = FirebaseAuth.getInstance();
+        CurrentUser = mauth.getCurrentUser();
 
         callSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this,SignupActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(intent);
             }
         });
-
-        onBackPressed();
-
-
-
-
 
         login_btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                usernamefromedittext=usernameedit.getText().toString();
-                passwordfromedt=passwordedit.getText().toString();
+                usernamefromedittext = usernameedit.getText().toString();
+                passwordfromedt = passwordedit.getText().toString();
 
-                if((usernamefromedittext.isEmpty())){
+                if ((usernamefromedittext.isEmpty())) {
 
                     username.setError("Username Needed");
 
                 }
-                if ((passwordfromedt.isEmpty())){
+                if ((passwordfromedt.isEmpty())) {
                     password.setError("Password Needed");
                 }
 
-                if((!(usernamefromedittext.isEmpty()) && (!(passwordfromedt.isEmpty())))){
+                if ((!(usernamefromedittext.isEmpty()) && (!(passwordfromedt.isEmpty())))) {
 
-                    mauth.signInWithEmailAndPassword(usernamefromedittext,passwordfromedt).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mauth.signInWithEmailAndPassword(usernamefromedittext, passwordfromedt).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
 
-                                if(mauth.getCurrentUser().isEmailVerified()) {
+                                if (mauth.getCurrentUser().isEmailVerified()) {
                                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(i);
-                                }
-                                else{
+                                } else {
                                     Toast.makeText(LoginActivity.this, "Please Verify Email ", Toast.LENGTH_SHORT).show();
                                 }
 
-                            }
-                            else{
+                            } else {
                                 Toast.makeText(LoginActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -112,33 +102,15 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void onStart(){
+    public void onStart() {
         super.onStart();
 
         if (CurrentUser != null) {
-            if(CurrentUser.isEmailVerified()) {
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(i);
-        }
+            if (CurrentUser.isEmailVerified()) {
+                Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(i);
+            }
 
         }
-    }
-
-    
-    public  void onBackPressed(){ 
-        super.onBackPressed();
-
-        new AlertDialog.Builder(this)
-                .setTitle("Message")
-                .setMessage("Do you want to exit app?")
-                .setNegativeButton("NO", null)
-                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        LoginActivity.super.onBackPressed();
-                    }
-                }).create().show();
-
-
     }
 }
