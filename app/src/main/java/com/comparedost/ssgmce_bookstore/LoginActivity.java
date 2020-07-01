@@ -4,12 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-<<<<<<<<< Temporary merge branch 1
-=========
+
 import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
->>>>>>>>> Temporary merge branch 2
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -64,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        onBackPressed();
+
 
 
 
@@ -125,21 +124,18 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    
-    public  void onBackPressed(){ 
-        super.onBackPressed();
 
+    @Override
+    public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Message")
-                .setMessage("Do you want to exit app?")
-                .setNegativeButton("NO", null)
-                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        LoginActivity.super.onBackPressed();
+                .setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                       LoginActivity.this.finish();
                     }
-                }).create().show();
-
-
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 }
