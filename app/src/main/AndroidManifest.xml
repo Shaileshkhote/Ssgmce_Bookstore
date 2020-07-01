@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyContact"></activity>
+        <activity android:name=".MyOrdersAdapter"></activity>
+        <activity android:name=".ProductDetails" />
+        <activity android:name=".MyOrders" />
+        <activity android:name=".MyContact" />
         <activity android:name=".MyProfile" />
         <activity android:name=".SplashScreen" />
         <activity android:name=".LoginActivity">

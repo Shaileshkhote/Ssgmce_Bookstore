@@ -104,7 +104,7 @@ public class ProfileFragment extends Fragment {
         contactuslistener.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getContext(),MyProfile.class);
+                Intent i=new Intent(getContext(),MyContact.class);
                 startActivity(i);
             }
         });
