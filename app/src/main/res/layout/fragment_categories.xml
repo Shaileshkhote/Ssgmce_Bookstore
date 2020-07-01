@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CategoriesFragment">
 
     <Button
-        android:id="@+id/addproduct"
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Product" />
+        android:text="Add product" />
 </FrameLayout>
