@@ -34,8 +34,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/book_title"
                 android:layout_width="337dp"
-                android:layout_height="44dp"
-                android:layout_marginTop="24dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
                 android:background="#FFF7F7"
                 android:hint="    Book Title*"
                 android:inputType="text"
@@ -43,6 +43,7 @@
                 android:textColorHint="#676666"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView5"
                 tools:visibility="visible" />
@@ -50,7 +51,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/author"
                 android:layout_width="337dp"
-                android:layout_height="43dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="76dp"
                 android:background="#FFF7F7"
                 android:hint="    Author*"
@@ -67,7 +68,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/book_edition"
                 android:layout_width="337dp"
-                android:layout_height="43dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="128dp"
                 android:background="#FFF7F7"
                 android:hint="    Book Edition*"
@@ -83,7 +84,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/original_price"
                 android:layout_width="337dp"
-                android:layout_height="40dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="400dp"
                 android:background="#FFF7F7"
                 android:hint="    Original Price*"
@@ -100,7 +101,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phone_number"
                 android:layout_width="337dp"
-                android:layout_height="37dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="456dp"
                 android:background="#FFF7F7"
                 android:hint="    Phone Number*"
@@ -110,17 +111,16 @@
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.55"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView5"
-                app:layout_constraintVertical_bias="0.358"
+                app:layout_constraintVertical_bias="0.447"
                 tools:visibility="visible" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/book_description"
                 android:layout_width="337dp"
                 android:layout_height="81dp"
-                android:layout_marginTop="304dp"
+                android:layout_marginTop="308dp"
                 android:background="#FFF7F7"
                 android:hint="    Description*"
                 android:inputType="text"
@@ -136,21 +136,20 @@
                 android:id="@+id/condition"
                 android:layout_width="337dp"
                 android:layout_height="28dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="12dp"
                 android:background="#FFF7F7"
                 android:hint="    Book Condition*"
                 android:textColorHighlight="#FFF7F7"
                 android:textColorHint="#676666"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.516"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/book_edition" />
 
             <TextView
                 android:id="@+id/estimate"
                 android:layout_width="337dp"
-                android:layout_height="39dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="284dp"
                 android:background="#FFF7F7"
                 android:hint="    Estimated Price"
@@ -216,8 +215,10 @@
                 app:iconTint="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phone_number"></Button>
+                app:layout_constraintTop_toBottomOf="@+id/phone_number"
+                app:layout_constraintVertical_bias="1.0"></Button>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

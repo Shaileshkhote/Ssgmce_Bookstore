@@ -24,8 +24,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFragment extends Fragment {
     TextView username,number;
-    RelativeLayout myprofilelistner,contactuslistener;
+    RelativeLayout myprofilelistner,contactuslistener,myorderslistener;
     Button logoutlistener;
+
+
 
 
     private String UID,usernamefromdb,phonefromdb;
@@ -46,6 +48,7 @@ public class ProfileFragment extends Fragment {
         myprofilelistner=view.findViewById(R.id.myprofilelistner);
         logoutlistener=(Button)view.findViewById(R.id.logoutlistener);
         contactuslistener=view.findViewById(R.id.contactuslistener);
+        myorderslistener=view.findViewById(R.id.myorderslistener);
 
 
         logoutlistener.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +66,7 @@ public class ProfileFragment extends Fragment {
             }
 
         });
+
 
         mauth=FirebaseAuth.getInstance();
       mydb=FirebaseDatabase.getInstance();
@@ -105,6 +109,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getContext(),MyContact.class);
+                startActivity(i);
+            }
+        });
+        myorderslistener.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getContext(),MyOrders.class);
                 startActivity(i);
             }
         });
