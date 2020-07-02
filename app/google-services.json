@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "308822495194-vm3l3iv3a6918r5tnhm6bk0b5pqb8ovt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.comparedost.ssgmce_bookstore",
+            "certificate_hash": "dcb0178a0ffd0e884ee55964c08e0ca7b212d0aa"
+          }
+        },
+        {
           "client_id": "308822495194-fnmhfmn2up2gd236j47k42h8k95l8d78.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -6,6 +6,8 @@
     <dist:module dist:instant="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -14,9 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyOrdersAdapter"></activity>
+        <activity android:name=".Invoice"></activity>
         <activity android:name=".ProductDetails" />
-        <activity android:name=".MyOrders" />
         <activity android:name=".MyContact" />
         <activity android:name=".MyProfile" />
         <activity android:name=".SplashScreen" />
