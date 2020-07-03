@@ -3,7 +3,6 @@ package com.comparedost.ssgmce_bookstore;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,7 +19,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -61,6 +59,16 @@ public class SignupActivity extends AppCompatActivity {
         mauth=FirebaseAuth.getInstance();
         mydb=FirebaseDatabase.getInstance();
         myref=mydb.getReference("Users");
+
+        Signin_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+           Intent i =new Intent(SignupActivity.this,LoginActivity.class);
+           startActivity(i);
+            }
+        });
+
+
 
 
 
@@ -159,6 +167,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
 
         });
+
 
 
     }

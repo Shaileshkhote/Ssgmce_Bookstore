@@ -1,11 +1,7 @@
 package com.comparedost.ssgmce_bookstore;
 
 
-
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -34,9 +30,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(ID_CART, R.drawable.ic_baseline_shopping_cart_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(ID_PROFILE, R.drawable.profile_icon));
 
-
-//        bottomNavigation.setCount(ID_NOTIFICATION, "115");
-
         bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
             @Override
             public void onClickItem(MeowBottomNavigation.Model item) {
@@ -54,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case ID_PROFILE :
 
-                         fragment= new ProfileFragment();
+                        fragment= new ProfileFragment();
                         break;
                     case ID_CATEGORIES :
                         fragment= new CategoriesFragment();
