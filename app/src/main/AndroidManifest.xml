@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Invoice"></activity>
+        <activity android:name=".MyOrders"></activity>
         <activity android:name=".ProductDetails" />
         <activity android:name=".MyContact" />
         <activity android:name=".MyProfile" />
