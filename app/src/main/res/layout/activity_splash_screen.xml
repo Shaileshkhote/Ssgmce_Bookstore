@@ -10,6 +10,7 @@
         android:id="@+id/img_book"
         android:layout_width="284dp"
         android:layout_height="345dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:src="@drawable/books" />

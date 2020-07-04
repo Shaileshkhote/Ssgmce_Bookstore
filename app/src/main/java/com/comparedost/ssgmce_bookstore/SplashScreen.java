@@ -23,7 +23,7 @@ public class SplashScreen extends AppCompatActivity {
                     startActivity(i);
 
                 } catch (InterruptedException e) {
-
+                    System.out.println(e);
                 }
             }
         });

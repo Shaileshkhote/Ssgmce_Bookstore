@@ -22,7 +22,8 @@
         <activity android:name=".ProductDetails" />
         <activity android:name=".MyContact" />
         <activity android:name=".MyProfile" />
-        <activity android:name=".SplashScreen" />
+        <activity android:name=".SplashScreen" ></activity>
+        <activity android:name=".SlideActivity"></activity>
         <activity android:name=".LoginActivity">
 
             <intent-filter>
@@ -31,6 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupActivity" />
 
