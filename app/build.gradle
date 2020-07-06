@@ -31,7 +31,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'com.google.firebase:firebase-database:19.3.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'com.google.firebase:firebase-firestore:21.4.3'
+    implementation 'com.firebaseui:firebase-ui-firestore:6.0.2'
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -44,6 +44,8 @@ dependencies {
 
 
     implementation 'com.mikhaellopez:circularimageview:4.2.0'
+    implementation 'com.airbnb.android:lottie:3.4.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 
 }

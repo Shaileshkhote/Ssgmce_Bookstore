@@ -50,6 +50,10 @@ public class ProfileFragment extends Fragment {
         contactuslistener=view.findViewById(R.id.contactuslistener);
         myorderslistener=view.findViewById(R.id.myorderslistener);
 
+        final Loading_Dialog dialog=new Loading_Dialog().newInstance();
+
+        dialog.show(getActivity().getSupportFragmentManager(),"");
+
 
         logoutlistener.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +88,7 @@ public class ProfileFragment extends Fragment {
 
                username.setText(usernamefromdb);
                number.setText(phonefromdb);
+               dialog.dismiss();
 
            }
 
