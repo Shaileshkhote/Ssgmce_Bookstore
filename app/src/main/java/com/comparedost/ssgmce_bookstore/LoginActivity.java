@@ -49,6 +49,10 @@ public class LoginActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
 
+        final Loading_Dialog dialog=new Loading_Dialog().newInstance();
+
+
+
 
         mauth = FirebaseAuth.getInstance();
         CurrentUser = mauth.getCurrentUser();
@@ -70,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if ((usernamefromedittext.isEmpty())) {
 
+
                     username.setError("Username Needed");
 
                 }
@@ -78,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 if ((!(usernamefromedittext.isEmpty()) && (!(passwordfromedt.isEmpty())))) {
+                    dialog.show(LoginActivity.this.getSupportFragmentManager(),"");
 
                     mauth.signInWithEmailAndPassword(usernamefromedittext, passwordfromedt).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -85,13 +91,16 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
 
                                 if (mauth.getCurrentUser().isEmailVerified()) {
+                                    dialog.dismiss();
                                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(i);
                                 } else {
+                                    dialog.dismiss();
                                     Toast.makeText(LoginActivity.this, "Please Verify Email ", Toast.LENGTH_SHORT).show();
                                 }
 
                             } else {
+                                dialog.dismiss();
                                 Toast.makeText(LoginActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
                             }
                         }
