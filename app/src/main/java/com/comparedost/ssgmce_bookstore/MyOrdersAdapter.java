@@ -44,6 +44,8 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.viewHo
         holder.order_id.setText(orderList.get(position).getOrder_id());
         holder.invoice_btn.setText(orderList.get(position).getInvoice_btn());
 
+
+
     }
 
     @Override
