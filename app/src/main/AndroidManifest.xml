@@ -22,16 +22,18 @@
         <activity android:name=".ProductDetails" />
         <activity android:name=".MyContact" />
         <activity android:name=".MyProfile" />
-        <activity android:name=".SplashScreen" ></activity>
-        <activity android:name=".SlideActivity"></activity>
-        <activity android:name=".LoginActivity">
-
+        <activity android:name=".SplashScreen" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+        <activity android:name=".SlideActivity"/>
+        <activity android:name=".LoginActivity"/>
+
+
+
 
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupActivity" />
