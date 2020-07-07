@@ -19,11 +19,11 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 try {
                     sleep(3000);
-                    Intent i=new Intent(SplashScreen.this,MainActivity.class);
+                    Intent i=new Intent(SplashScreen.this,SlideActivity.class);
                     startActivity(i);
 
                 } catch (InterruptedException e) {
-
+                    System.out.println(e);
                 }
             }
         });
