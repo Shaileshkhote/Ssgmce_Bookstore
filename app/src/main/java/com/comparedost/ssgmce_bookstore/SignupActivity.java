@@ -55,6 +55,8 @@ public class SignupActivity extends AppCompatActivity {
         Signin_btn=findViewById(R.id.reg_log_btn);
 
         progressbar=findViewById(R.id.progressBar);
+        final Loading_Dialog dialog=new Loading_Dialog().newInstance();
+
 
         mauth=FirebaseAuth.getInstance();
         mydb=FirebaseDatabase.getInstance();
@@ -105,9 +107,10 @@ public class SignupActivity extends AppCompatActivity {
 
                             if(!(emailstr.isEmpty())  && !(usernamestr.isEmpty())  && !(phonestr.isEmpty()) &&!(namestr.isEmpty())  &&!(passstr.isEmpty())){
                                 Toast.makeText(SignupActivity.this, emailstr, Toast.LENGTH_SHORT).show();
-                                progressbar.setVisibility(View.VISIBLE);
+                                dialog.show(SignupActivity.this.getSupportFragmentManager(),"");
 
-                        mauth.createUserWithEmailAndPassword(emailstr,passstr).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+
+                                mauth.createUserWithEmailAndPassword(emailstr,passstr).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 if(authResult != null){
@@ -138,7 +141,7 @@ public class SignupActivity extends AppCompatActivity {
                                                     public void onComplete(@NonNull Task<Void> task) {
                                                         if(task.isSuccessful()){
                                                             Toast.makeText(SignupActivity.this, "Registered Succesfully !!", Toast.LENGTH_SHORT).show();
-                                                            progressbar.setVisibility(View.GONE);
+                                                            dialog.dismiss();
                                                             Handler handler=new Handler();
 
                                                             handler.postDelayed(new Runnable() {

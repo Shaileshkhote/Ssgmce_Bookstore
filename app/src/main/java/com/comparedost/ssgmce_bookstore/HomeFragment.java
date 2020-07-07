@@ -12,7 +12,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -30,19 +35,19 @@ public class HomeFragment extends Fragment {
 
     SliderView sliderView;
     private SliderAdapter adapter;
+    Button shopall;
 
     private RecyclerView recyclerView,categoryrecycler;
-    private  ArrayList<EditorChoiceListItem> listitems;
+              List<EditorChoiceListItem> listitems;
     private  ArrayList<CategoryListItem> catlistitems;
-    private int productimage []={R.drawable.bookstore,R.drawable.bookstore,R.drawable.bookstore,R.drawable.bookstore,R.drawable.bookstore};
-    private String prodname []={"Aditya Dbms","Aditya Dbms","Aditya Dbms","Aditya Dbms","Aditya Dbms"};
-    private String semester[]={"Sem-5","Sem-5","Sem-5","Sem-5","Sem-5"};
-    private  String branch[]={"I.T","I.T","I.T","I.T","I.T"};
-    private String orignalprice[]={"150","150","150","150","150"};
-    private String offerprice[]={"100","100","100","100","100"};
+             EditorChoiceAdapter e_c_adapter;
+
+
 
     private int categoryimage[]={R.drawable.profile,R.drawable.profile,R.drawable.profile,R.drawable.profile,R.drawable.profile};
     private  String categoryname[]={"IT ","CSE ","ENTC ","EE ","MECH"};
+
+    private FirebaseFirestore fstore;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +60,22 @@ public class HomeFragment extends Fragment {
      catlistitems=new ArrayList<>();
 
         sliderView = view.findViewById(R.id.imageSlider);
+        shopall=view.findViewById(R.id.shopall);
+        fstore=FirebaseFirestore.getInstance();
+
+        CategoriesAdapter catadapter=new CategoriesAdapter(getContext(),catlistitems);
+        categoryrecycler.setAdapter(catadapter);
+
+        Firebaserecycle();
+
+        shopall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new ShopAllFragment()).commit();
+
+            }
+        });
+
 
 
         adapter = new SliderAdapter(getContext());
@@ -67,6 +88,8 @@ public class HomeFragment extends Fragment {
         sliderView.setScrollTimeInSec(3);
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
+
+
 
 
         sliderView.setOnIndicatorClickListener(new DrawController.ClickListener() {
@@ -83,31 +106,28 @@ public class HomeFragment extends Fragment {
 
         categoryrecycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         categoryrecycler.setItemAnimator(new DefaultItemAnimator());
+        for(int i=0;i<categoryimage.length;i++)
+        {
+
+            CategoryListItem catlist=new CategoryListItem();
+
+            catlist.setCategoryimage(categoryimage[i]);
+            catlist.setCategoryname(categoryname[i]);
+
+            catlistitems.add(catlist);
+
+        }
 
 
-        for(int i=0;i<productimage.length;i++)
-     {
-         EditorChoiceListItem item=new EditorChoiceListItem();
-         CategoryListItem catlist=new CategoryListItem();
-         item.setProductview(productimage[i]);
-         item.setProductname(prodname[i]);
-         item.setSemester(semester[i]);
-         item.setBranch(branch[i]);
-         item.setOrignamlprice(orignalprice[i]);
-         item.setOfferprice(offerprice[i]);
 
-         catlist.setCategoryimage(categoryimage[i]);
-         catlist.setCategoryname(categoryname[i]);
 
-         catlistitems.add(catlist);
-         listitems.add(item);
-     }
 
-     EditorChoiceAdapter adapter=new EditorChoiceAdapter(getContext(),listitems);
 
-     CategoriesAdapter catadapter=new CategoriesAdapter(getContext(),catlistitems);
-     categoryrecycler.setAdapter(catadapter);
-     recyclerView.setAdapter(adapter);
+
+
+
+
+
 
     return view;
     }
@@ -127,5 +147,20 @@ public class HomeFragment extends Fragment {
             sliderItemList.add(sliderItem);
         }
         adapter.renewItems(sliderItemList);
+    }
+
+    public void Firebaserecycle(){
+
+
+        Query query=FirebaseFirestore.getInstance()
+                .collection("Products");
+
+        FirestoreRecyclerOptions<EditorChoiceListItem> options= new FirestoreRecyclerOptions.Builder<EditorChoiceListItem>()
+                .setQuery(query,EditorChoiceListItem.class)
+                .build();
+
+        e_c_adapter=new EditorChoiceAdapter(options);
+        recyclerView.setAdapter(e_c_adapter);
+        e_c_adapter.startListening();
     }
 }

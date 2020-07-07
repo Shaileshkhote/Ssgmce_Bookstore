@@ -2,14 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
     android:backgroundTint="#0288D1"
     android:elevation="10dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="115dp"
-        android:layout_height="170dp"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         app:cardCornerRadius="5dp"
@@ -27,40 +31,43 @@
 
             <ImageView
                 android:id="@+id/e_c_productimage"
-                android:layout_width="60dp"
-                android:layout_height="82dp"
-                android:layout_marginTop="12dp"
+                android:layout_width="68dp"
+                android:layout_height="89dp"
+                android:layout_marginTop="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.381"
+                app:layout_constraintHorizontal_bias="0.019"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bookstore" />
 
             <TextView
                 android:id="@+id/e_c_product_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_width="87dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="12dp"
                 android:text="Aditya DBMS-IT"
                 android:textColor="#5E4040"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/e_c_productimage" />
+                app:layout_constraintHorizontal_bias="0.121"
+                app:layout_constraintStart_toEndOf="@+id/e_c_productimage"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/e_c_branch_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="12dp"
                 android:text="I.T"
                 android:textColor="#FF0000"
                 android:textSize="10dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/e_c_product_name" />
+                app:layout_constraintBottom_toTopOf="@+id/e_c_offerprice"
+                app:layout_constraintEnd_toStartOf="@+id/e_c_semester"
+                app:layout_constraintHorizontal_bias="0.87"
+                app:layout_constraintStart_toEndOf="@+id/e_c_productimage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.83" />
 
             <TextView
                 android:id="@+id/e_c_semester"
@@ -72,8 +79,8 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/e_c_branch_name"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.136"
-                app:layout_constraintStart_toEndOf="@+id/e_c_branch_name"
+                app:layout_constraintHorizontal_bias="0.119"
+                app:layout_constraintStart_toStartOf="@+id/e_c_product_name"
                 app:layout_constraintTop_toTopOf="@+id/e_c_branch_name"
                 app:layout_constraintVertical_bias="0.0" />
 
@@ -90,7 +97,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/e_c_offerprice"
                 app:layout_constraintEnd_toEndOf="parent"
 
-                app:layout_constraintHorizontal_bias="0.12"
+                app:layout_constraintHorizontal_bias="0.007"
                 app:layout_constraintStart_toEndOf="@+id/e_c_offerprice"
                 app:layout_constraintTop_toTopOf="@+id/e_c_offerprice"
                 app:layout_constraintVertical_bias="0.0" />
@@ -99,15 +106,15 @@
                 android:id="@+id/e_c_offerprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="40dp"
                 android:text="₹100"
                 android:textColor="#000000"
                 android:textSize="12dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/e_c_branch_name"
-                app:layout_constraintVertical_bias="0.35" />
+                app:layout_constraintStart_toEndOf="@+id/e_c_productimage"
+                app:layout_constraintTop_toBottomOf="@+id/e_c_product_name"
+                app:layout_constraintVertical_bias="0.632" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
