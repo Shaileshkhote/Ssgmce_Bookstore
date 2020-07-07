@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditorChoiceAdapter extends FirestoreRecyclerAdapter<EditorChoiceListItem,EditorChoiceAdapter.EditorChoiceViewHolder> {
+public class ShopallAdapter extends FirestoreRecyclerAdapter<EditorChoiceListItem,ShopallAdapter.EditorChoiceViewHolder> {
 
 
     /**
@@ -27,21 +27,21 @@ public class EditorChoiceAdapter extends FirestoreRecyclerAdapter<EditorChoiceLi
      *
      * @param options
      */
-    public EditorChoiceAdapter(@NonNull FirestoreRecyclerOptions<EditorChoiceListItem> options) {
+    public  ShopallAdapter(@NonNull FirestoreRecyclerOptions<EditorChoiceListItem> options) {
         super(options);
     }
 
     @Override
     protected void onBindViewHolder(@NonNull EditorChoiceViewHolder holder, int position, @NonNull EditorChoiceListItem model) {
-try {
-    Picasso.get().load(model.getPhotoURL()).into(holder.productImage);
-    holder.ProductName.setText(model.getBook_Title());
-    holder.Branch.setText(model.getBook_Author());
-    holder.Semester.setText(model.getBook_Edition());
-    holder.SellingPrice.setText(model.getSelling_Price());
-    holder.OrignalPrice.setText(model.getOrignal_Price());
+        try {
+            Picasso.get().load(model.getPhotoURL()).into(holder.productImage);
+            holder.ProductName.setText(model.getBook_Title());
+            holder.Branch.setText(model.getBook_Author());
+            holder.Semester.setText(model.getBook_Edition());
+            holder.SellingPrice.setText(model.getSelling_Price());
+            holder.OrignalPrice.setText(model.getOrignal_Price());
 
-}catch (NullPointerException e){}
+        }catch (NullPointerException e){}
 
 
     }
@@ -51,7 +51,7 @@ try {
     public EditorChoiceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.editors_choice_listitem, parent, false);
+                .inflate(R.layout.shopallitem, parent, false);
 
         return new EditorChoiceViewHolder(view) ;
     }

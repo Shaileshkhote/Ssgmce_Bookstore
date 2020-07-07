@@ -84,6 +84,9 @@ public class ProductDetails extends AppCompatActivity {
         mauth = FirebaseAuth.getInstance();
         mydb = FirebaseDatabase.getInstance();
         fdb = FirebaseFirestore.getInstance();
+        final Loading_Dialog dialog=new Loading_Dialog().newInstance();
+
+
 
 
         click_here.setOnClickListener(new View.OnClickListener() {
@@ -131,6 +134,7 @@ public class ProductDetails extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 final String photouid;
                 photouid= UUID.randomUUID().toString();
                 final StorageReference mstoreref=mstore.getReference().child("Product-Images/"+photouid+".jpg");
@@ -166,6 +170,7 @@ public class ProductDetails extends AppCompatActivity {
                 if(!(bookauthorstr.isEmpty()) && !(booktitlestr.isEmpty()) && !(bookdesstr.isEmpty()) && !(orignalpricestr.isEmpty()) &&!(phonenostr.isEmpty())
 
                         && !(bookeditionstr.isEmpty())  &&!(estimatestr.isEmpty())  && !(conditionchecked.isEmpty())){
+                    dialog.show(ProductDetails.this.getSupportFragmentManager(),"");
 
 
 
@@ -182,15 +187,16 @@ public class ProductDetails extends AppCompatActivity {
 
                                     if(!(photourl.toString().isEmpty())){
                                         Map<String,Object> storemap=new HashMap<>();
-                                        storemap.put("Book Title", booktitlestr);
-                                        storemap.put("Book Author", bookauthorstr);
-                                        storemap.put("Book Description", bookdesstr);
-                                        storemap.put("Book Edition", bookeditionstr);
-                                        storemap.put("Orignal Price", orignalpricestr);
-                                        storemap.put("Selling Price", estimatestr);
-                                        storemap.put("Phone No", phonenostr);
-                                        storemap.put("Book Condition", conditionchecked);
-                                        storemap.put("Listed By", CurrentUser);
+                                        storemap.put("Book_Title", booktitlestr);
+                                        storemap.put("Book_Author", bookauthorstr);
+                                        storemap.put("Book_Description", bookdesstr);
+                                        storemap.put("Book_Edition", bookeditionstr);
+                                        storemap.put("Orignal_Price", orignalpricestr);
+                                        storemap.put("Selling_Price", estimatestr);
+                                        storemap.put("Phone_No", phonenostr);
+                                        storemap.put("Book_Condition", conditionchecked);
+                                        storemap.put("Listed_By", CurrentUser);
+                                        storemap.put("PhotoURL",photourl.toString());
 
                                         fdb.collection("Products").add(storemap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                             @Override
@@ -202,6 +208,7 @@ public class ProductDetails extends AppCompatActivity {
                                                         @Override
                                                         public void onSuccess(Void aVoid) {
                                                             Toast.makeText(ProductDetails.this, "Product Added Succesfully", Toast.LENGTH_SHORT).show();
+                                                            dialog.dismiss();
                                                         }
                                                     });
                                                 }
