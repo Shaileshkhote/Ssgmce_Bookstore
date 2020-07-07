@@ -3,10 +3,15 @@ package com.comparedost.ssgmce_bookstore;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,10 +60,32 @@ public class CartFragment extends Fragment {
         }
     }
 
+
+    private RecyclerView cartItemsRecyclerView;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false);
+        View view= inflater.inflate(R.layout.fragment_cart, container, false);
+
+        cartItemsRecyclerView=view.findViewById(R.id.cart_item_reclycleview);
+
+        LinearLayoutManager LayoutManager= new LinearLayoutManager(getContext());
+        LayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        List<CartItemModel> cartItemModelList= new ArrayList<>();
+        cartItemModelList.add(new CartItemModel(0,R.drawable.product_image,"Aditya TOC IT (6th sem)",1,"Rs.100/-"));
+        cartItemModelList.add(new CartItemModel(0,R.drawable.product_image,"Aditya DBMS IT (6th sem)",2,"Rs.200/-"));
+        cartItemModelList.add(new CartItemModel(0,R.drawable.product_image,"Aditya POM IT (6th sem)",2,"Rs.200/-"));
+        cartItemModelList.add(new CartItemModel(1,"Price (3 items)","Rs.300/-","free","Rs.300/-","Rs.150/-"));
+
+
+        CartAdapter cartAdapter=new CartAdapter(cartItemModelList);
+        cartItemsRecyclerView.setAdapter(cartAdapter);
+        cartAdapter.notifyDataSetChanged();
+
+        return view;
     }
 }
