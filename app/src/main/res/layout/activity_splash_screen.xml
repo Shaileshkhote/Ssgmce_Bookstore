@@ -10,8 +10,13 @@
         android:id="@+id/img_book"
         android:layout_width="284dp"
         android:layout_height="345dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:src="@drawable/books" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    </RelativeLayout>
 
