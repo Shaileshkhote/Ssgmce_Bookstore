@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -121,5 +122,30 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("Exit Alert");
+            alertDialog.setIcon(R.drawable.profile_icon);
+
+            alertDialog.setMessage("Do you really want to Exit?");
+            alertDialog.setButton("Yes", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    return;
+                } });
+            alertDialog.setButton2("No", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                    return;
+                }});
+            alertDialog.show();
+
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

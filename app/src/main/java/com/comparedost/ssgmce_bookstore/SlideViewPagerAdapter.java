@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class SlideViewPagerAdapter extends PagerAdapter {
 
     Context ctx;
@@ -37,7 +39,8 @@ public class SlideViewPagerAdapter extends PagerAdapter {
         View view=layoutInflater.inflate(R.layout.slide_screen,container,false);
 
 
-        ImageView logo=view.findViewById(R.id.logo);
+       // ImageView logo=view.findViewById(R.id.logo);
+        LottieAnimationView logo =view.findViewById(R.id.logo);
 
         ImageView ind1=view.findViewById(R.id.ind1);
         ImageView ind2=view.findViewById(R.id.ind2);
@@ -76,18 +79,19 @@ public class SlideViewPagerAdapter extends PagerAdapter {
         switch (position)
         {
             case 0:
-                logo.setImageResource(R.drawable.log1);
+                logo.setAnimation("buybook.json");
                 ind1.setImageResource(R.drawable.selected);
                 ind2.setImageResource(R.drawable.unselected);
                 ind3.setImageResource(R.drawable.unselected);
 
-                title.setText("Shoping Place");
+                title.setText("Buy Books");
                 desc.setText("This is random text taking from lorem ipsum tesing puspose");
                 back.setVisibility(View.GONE);
                 next.setVisibility(View.VISIBLE);
+                btnGetStarted.setVisibility(View.INVISIBLE);
                 break;
             case 1:
-                logo.setImageResource(R.drawable.log2);
+                logo.setAnimation("shop.json");
                 ind1.setImageResource(R.drawable.unselected);
                 ind2.setImageResource(R.drawable.selected);
                 ind3.setImageResource(R.drawable.unselected);
@@ -96,17 +100,19 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                 desc.setText("This is random text taking from lorem ipsum tesing puspose");
                 back.setVisibility(View.VISIBLE);
                 next.setVisibility(View.VISIBLE);
+                btnGetStarted.setVisibility(View.INVISIBLE);
                 break;
             case 2:
-                logo.setImageResource(R.drawable.log3);
+                logo.setAnimation("pay.json");
                 ind1.setImageResource(R.drawable.unselected);
                 ind2.setImageResource(R.drawable.unselected);
                 ind3.setImageResource(R.drawable.selected);
 
-                title.setText("Pay on Delivery");
+                title.setText("Hassle Free Payment");
                 desc.setText("This is random text taking from lorem ipsum tesing puspose");
                 back.setVisibility(View.VISIBLE);
                 next.setVisibility(View.GONE);
+                btnGetStarted.setVisibility(View.VISIBLE);
                 break;
 
 
