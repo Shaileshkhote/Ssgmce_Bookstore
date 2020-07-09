@@ -15,7 +15,7 @@ public class CartItemModel {
         this.type = type;
     }
 
-    //////// cart item
+    /////// cart item
     private int productImage;
     private String productTitle;
     private int productQuantity;
