@@ -76,9 +76,9 @@ public class CartFragment extends Fragment {
         LayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         List<CartItemModel> cartItemModelList= new ArrayList<>();
-        cartItemModelList.add(new CartItemModel(0,R.drawable.product_image,"Aditya TOC IT (6th sem)",1,"Rs.100/-"));
-        cartItemModelList.add(new CartItemModel(0,R.drawable.product_image,"Aditya DBMS IT (6th sem)",2,"Rs.200/-"));
-        cartItemModelList.add(new CartItemModel(0,R.drawable.product_image,"Aditya POM IT (6th sem)",2,"Rs.200/-"));
+        cartItemModelList.add(new CartItemModel(0,R.drawable.book,"Aditya TOC IT (6th sem)",1,"Rs.100/-"));
+        cartItemModelList.add(new CartItemModel(0,R.drawable.book,"Aditya DBMS IT (6th sem)",2,"Rs.200/-"));
+        cartItemModelList.add(new CartItemModel(0,R.drawable.book,"Aditya POM IT (6th sem)",2,"Rs.200/-"));
         cartItemModelList.add(new CartItemModel(1,"Price (3 items)","Rs.300/-","free","Rs.300/-","Rs.150/-"));
 
 
