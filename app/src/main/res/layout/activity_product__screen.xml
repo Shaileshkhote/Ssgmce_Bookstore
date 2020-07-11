@@ -29,7 +29,7 @@
                 android:layout_margin="0dp">
 
                 <ImageView
-                    android:id="@+id/imageView10"
+                    android:id="@+id/share"
                     android:layout_width="41dp"
                     android:layout_height="25dp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
@@ -62,14 +62,13 @@
 
                 <TextView
                     android:id="@+id/textView5"
-                    android:layout_width="285dp"
-                    android:layout_height="41dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Aditya Publicationn DBMS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
                     android:textColor="#E31212"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="@+id/divider5"
-                    app:layout_constraintHorizontal_bias="0.214"
+                    app:layout_constraintHorizontal_bias="0.273"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
 
@@ -87,8 +86,8 @@
 
                 <TextView
                     android:id="@+id/textView8"
-                    android:layout_width="93dp"
-                    android:layout_height="20dp"
+                    android:layout_width="91dp"
+                    android:layout_height="21dp"
                     android:text="Original Price :"
                     android:textColor="#00B8D4"
                     app:layout_constraintBottom_toTopOf="@+id/textView6"
@@ -100,13 +99,13 @@
 
                 <TextView
                     android:id="@+id/e_c_orignalprice"
-                    android:layout_width="29dp"
-                    android:layout_height="16dp"
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
                     android:layout_marginStart="8dp"
                     android:background="@drawable/strikethrough"
-                    android:text="₹210"
-                    android:textColor="#E31212"
+                    android:text="₹"
 
+                    android:textColor="#E31212"
                     android:textColorHint="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="italic"
@@ -119,7 +118,7 @@
                     android:id="@+id/divider6"
                     android:layout_width="594dp"
                     android:layout_height="1dp"
-                    android:layout_marginTop="48dp"
+                    android:layout_marginTop="92dp"
                     android:background="?android:attr/listDivider"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -145,7 +144,7 @@
                     android:layout_height="19dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginBottom="20dp"
-                    android:text="₹120"
+                    android:text="₹"
                     android:textColor="#E31212"
                     app:layout_constraintBottom_toTopOf="@+id/e_c_orignalprice"
                     app:layout_constraintStart_toEndOf="@+id/textView8" />
@@ -161,13 +160,12 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/textView5"
                     app:layout_constraintTop_toBottomOf="@+id/textView6"
-                    app:layout_constraintVertical_bias="0.433" />
+                    app:layout_constraintVertical_bias="0.126" />
 
                 <TextView
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Good"
                     android:textColor="#00C853"
                     app:layout_constraintBottom_toBottomOf="@+id/textView9"
                     app:layout_constraintEnd_toEndOf="@+id/e_c_orignalprice"
@@ -202,7 +200,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="20dp"
-                    android:text="Dwivedi"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/textView7"
                     app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -211,7 +208,6 @@
                     android:id="@+id/textView22"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Good"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/textView24"
                     app:layout_constraintStart_toEndOf="@+id/textView7"
@@ -221,14 +217,13 @@
                 <TextView
                     android:id="@+id/textView23"
                     android:layout_width="176dp"
-                    android:layout_height="97dp"
-                    android:layout_marginEnd="172dp"
-                    android:text="XYZ"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="180dp"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/textView17"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView15"
-                    app:layout_constraintVertical_bias="0.4" />
+                    app:layout_constraintVertical_bias="0.264" />
 
                 <TextView
                     android:id="@+id/textView24"
@@ -236,7 +231,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="674dp"
                     android:layout_marginBottom="12dp"
-                    android:text="₹210"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/textView18"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -250,7 +244,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="128dp"
-                    android:text="₹120"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -285,26 +278,26 @@
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="32dp"
+                    android:layout_marginBottom="4dp"
                     android:text="Description :"
                     android:textColor="#322B2B"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView23"
                     app:layout_constraintEnd_toStartOf="@+id/textView23"
-                    app:layout_constraintHorizontal_bias="0.54"
+                    app:layout_constraintHorizontal_bias="0.326"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/textView17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginBottom="8dp"
                     android:text="Original Price :"
                     android:textColor="#322B2B"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView24"
                     app:layout_constraintEnd_toStartOf="@+id/textView24"
-                    app:layout_constraintHorizontal_bias="0.278"
+                    app:layout_constraintHorizontal_bias="0.146"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
@@ -328,18 +321,18 @@
                     android:textColor="#FFFFFF"
                     app:layout_constraintBottom_toBottomOf="@+id/divider6"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.059"
-                    app:layout_constraintStart_toEndOf="@+id/textView11"
-                    app:layout_constraintTop_toBottomOf="@+id/e_c_orignalprice"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintHorizontal_bias="0.291"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView9"
+                    app:layout_constraintVertical_bias="0.529" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/wishlist"
                     android:layout_width="42dp"
                     android:layout_height="28dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-                    app:layout_constraintStart_toEndOf="@+id/imageView10"
-                    app:layout_constraintTop_toTopOf="@+id/imageView10"
+                    app:layout_constraintBottom_toBottomOf="@+id/share"
+                    app:layout_constraintStart_toEndOf="@+id/share"
+                    app:layout_constraintTop_toTopOf="@+id/share"
                     app:srcCompat="@drawable/heart" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

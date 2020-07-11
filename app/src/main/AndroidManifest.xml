@@ -22,8 +22,10 @@
         <activity android:name=".ProductDetails" />
         <activity android:name=".MyContact" />
         <activity android:name=".MyProfile" />
-        <activity android:name=".SplashScreen" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SlideActivity"></activity>
+
+        <activity android:name=".LoginActivity"/>
+            <activity android:name=".SplashScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
