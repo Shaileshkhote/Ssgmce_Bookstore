@@ -22,6 +22,7 @@
         <activity android:name=".ProductDetails" />
         <activity android:name=".MyContact" />
         <activity android:name=".MyProfile" />
+        <activity android:name=".Product_Screen"></activity>
         <activity android:name=".SlideActivity"></activity>
 
         <activity android:name=".LoginActivity"/>

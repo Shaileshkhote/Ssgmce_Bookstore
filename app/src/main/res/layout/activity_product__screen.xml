@@ -32,10 +32,11 @@
                     android:id="@+id/share"
                     android:layout_width="41dp"
                     android:layout_height="25dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.035"
+                    android:layout_marginTop="140dp"
+                    app:layout_constraintBottom_toTopOf="@+id/divider5"
                     app:layout_constraintStart_toEndOf="@+id/imageButton2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
                     app:srcCompat="@drawable/share" />
 
                 <View
@@ -49,7 +50,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/imageButton2"
                     android:layout_width="192dp"
                     android:layout_height="197dp"
@@ -57,8 +58,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.204"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/books" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView5"

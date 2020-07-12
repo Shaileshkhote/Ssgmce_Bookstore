@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -20,6 +21,8 @@ import java.util.List;
 
 public class ShopallAdapter extends FirestoreRecyclerAdapter<EditorChoiceListItem,ShopallAdapter.EditorChoiceViewHolder> {
 
+
+    private OnItemClickListener listener;
 
     /**
      * Create a new RecyclerView adapter that listens to a Firestore Query.  See {@link
@@ -67,7 +70,24 @@ public class ShopallAdapter extends FirestoreRecyclerAdapter<EditorChoiceListIte
             Semester=itemView.findViewById(R.id.e_c_semester);
             OrignalPrice=itemView.findViewById(R.id.e_c_orignalprice);
             SellingPrice=itemView.findViewById(R.id.e_c_offerprice);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    listener.OnItemClick(getSnapshots().getSnapshot(position),position);
+
+                }
+            });
         }
+    }
+
+    public interface OnItemClickListener{
+        void OnItemClick(DocumentSnapshot documentSnapshot  , int  position);
+    }
+    public void setOnItemClickListener(OnItemClickListener  listener){
+        this.listener=listener;
     }
 
 
