@@ -31,8 +31,8 @@
 
             <ImageView
                 android:id="@+id/e_c_productimage"
-                android:layout_width="68dp"
-                android:layout_height="89dp"
+                android:layout_width="66dp"
+                android:layout_height="76dp"
                 android:layout_marginTop="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.019"
@@ -42,15 +42,14 @@
 
             <TextView
                 android:id="@+id/e_c_product_name"
-                android:layout_width="87dp"
-                android:layout_height="23dp"
+                android:layout_width="196dp"
+                android:layout_height="25dp"
                 android:layout_marginTop="12dp"
                 android:text="Aditya DBMS-IT"
-                android:textColor="#5E4040"
-                android:textSize="10sp"
-                android:textStyle="bold"
+                android:textColor="#252222"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.121"
+                app:layout_constraintHorizontal_bias="0.263"
                 app:layout_constraintStart_toEndOf="@+id/e_c_productimage"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,16 +57,15 @@
                 android:id="@+id/e_c_branch_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
                 android:text="I.T"
                 android:textColor="#FF0000"
-                android:textSize="10dp"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/e_c_offerprice"
                 app:layout_constraintEnd_toStartOf="@+id/e_c_semester"
-                app:layout_constraintHorizontal_bias="0.87"
-                app:layout_constraintStart_toEndOf="@+id/e_c_productimage"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.83" />
+                app:layout_constraintHorizontal_bias="0.711"
+                app:layout_constraintStart_toEndOf="@+id/e_c_productimage" />
 
             <TextView
                 android:id="@+id/e_c_semester"
@@ -75,46 +73,108 @@
                 android:layout_height="wrap_content"
                 android:text="Sem-6"
                 android:textColor="#388E3C"
-                android:textSize="10dp"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/e_c_branch_name"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.119"
+                app:layout_constraintHorizontal_bias="0.296"
                 app:layout_constraintStart_toStartOf="@+id/e_c_product_name"
                 app:layout_constraintTop_toTopOf="@+id/e_c_branch_name"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/e_c_orignalprice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_width="28dp"
+                android:layout_height="15dp"
                 android:background="@drawable/strikethrough"
                 android:text="₹150"
-                android:textColor="#000000"
+                android:textColor="#C32F2F"
                 android:textSize="12dp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="@+id/e_c_offerprice"
-                app:layout_constraintEnd_toEndOf="parent"
 
-                app:layout_constraintHorizontal_bias="0.007"
-                app:layout_constraintStart_toEndOf="@+id/e_c_offerprice"
-                app:layout_constraintTop_toTopOf="@+id/e_c_offerprice"
-                app:layout_constraintVertical_bias="0.0" />
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/click_here"
+                app:layout_constraintEnd_toStartOf="@+id/e_c_semester"
+                app:layout_constraintStart_toEndOf="@+id/e_c_branch_name"
+                app:layout_constraintTop_toTopOf="@+id/click_here" />
 
             <TextView
                 android:id="@+id/e_c_offerprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
                 android:text="₹100"
-                android:textColor="#000000"
+                android:textColor="#00B8D4"
                 android:textSize="12dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/e_c_orignalprice"
+                app:layout_constraintEnd_toStartOf="@+id/e_c_orignalprice"
+                app:layout_constraintHorizontal_bias="0.823"
                 app:layout_constraintStart_toEndOf="@+id/e_c_productimage"
-                app:layout_constraintTop_toBottomOf="@+id/e_c_product_name"
-                app:layout_constraintVertical_bias="0.632" />
+                app:layout_constraintTop_toTopOf="@+id/e_c_orignalprice"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/wishlist"
+                android:layout_width="31dp"
+                android:layout_height="18dp"
+                app:layout_constraintBottom_toBottomOf="@+id/e_c_orignalprice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.762"
+                app:layout_constraintStart_toEndOf="@+id/e_c_orignalprice"
+                app:layout_constraintTop_toTopOf="@+id/e_c_orignalprice"
+                app:srcCompat="@drawable/heart" />
+
+            <ImageView
+                android:id="@+id/cart"
+                android:layout_width="31dp"
+                android:layout_height="18dp"
+                app:layout_constraintBottom_toBottomOf="@+id/wishlist"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintStart_toEndOf="@+id/wishlist"
+                app:layout_constraintTop_toTopOf="@+id/wishlist"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/cart" />
+
+            <Button
+                android:id="@+id/click_here"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="73dp"
+                android:layout_height="31dp"
+                android:text="Click here"
+                android:textColor="#00C853"
+                android:textSize="8sp"
+                app:layout_constraintBottom_toBottomOf="@+id/condition"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/condition"></Button>
+
+            <TextView
+                android:id="@+id/off"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="( 65% off)"
+                android:textColor="#D50000"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/e_c_orignalprice"
+                app:layout_constraintEnd_toStartOf="@+id/wishlist"
+                app:layout_constraintHorizontal_bias="0.084"
+                app:layout_constraintStart_toEndOf="@+id/e_c_orignalprice"
+                app:layout_constraintTop_toTopOf="@+id/e_c_orignalprice"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Condition?"
+                android:textColor="#FF0000"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/click_here"
+                app:layout_constraintHorizontal_bias="0.888"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

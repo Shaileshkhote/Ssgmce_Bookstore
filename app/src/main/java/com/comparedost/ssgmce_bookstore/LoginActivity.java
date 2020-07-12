@@ -15,6 +15,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,7 +29,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     Button callSignUp, login_btn;
-    //    ImageView image;
+//        ImageView image;
 //    TextView logoText, sloganText;
     TextInputLayout username, password;
     TextInputEditText passwordedit, usernameedit;
@@ -102,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             } else {
                                 dialog.dismiss();
-                                Toast.makeText(LoginActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Please enter the right credential", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
