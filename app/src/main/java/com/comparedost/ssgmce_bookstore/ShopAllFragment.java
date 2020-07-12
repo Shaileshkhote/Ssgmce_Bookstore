@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
@@ -24,7 +26,7 @@ import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopAllFragment extends Fragment {
+public class ShopAllFragment extends Fragment  {
 
     private FirebaseFirestore fstore;
 
@@ -64,7 +66,13 @@ public class ShopAllFragment extends Fragment {
 
 
 
-
+        shopall.setOnItemClickListener(new ShopallAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(DocumentSnapshot documentSnapshot, int position) {
+                String id=documentSnapshot.getId();
+                Toast.makeText(getContext(), "doc id"+id, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
@@ -93,5 +101,9 @@ public class ShopAllFragment extends Fragment {
         recyclerView.setAdapter(shopall);
        shopall.startListening();
     }
+
+
+
+
 }
 
