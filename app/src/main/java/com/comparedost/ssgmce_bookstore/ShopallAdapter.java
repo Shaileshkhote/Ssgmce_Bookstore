@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +21,13 @@ import java.util.List;
 public class ShopallAdapter extends FirestoreRecyclerAdapter<EditorChoiceListItem,ShopallAdapter.EditorChoiceViewHolder> {
 
 
-    public ShopallAdapter(@NonNull FirestoreRecyclerOptions<EditorChoiceListItem> options) {
+    /**
+     * Create a new RecyclerView adapter that listens to a Firestore Query.  See {@link
+     * FirestoreRecyclerOptions} for configuration options.
+     *
+     * @param options
+     */
+    public  ShopallAdapter(@NonNull FirestoreRecyclerOptions<EditorChoiceListItem> options) {
         super(options);
     }
 
@@ -36,8 +41,7 @@ public class ShopallAdapter extends FirestoreRecyclerAdapter<EditorChoiceListIte
             holder.SellingPrice.setText(model.getSelling_Price());
             holder.OrignalPrice.setText(model.getOrignal_Price());
 
-        } catch (NullPointerException e) {
-        }
+        }catch (NullPointerException e){}
 
 
     }
@@ -49,25 +53,26 @@ public class ShopallAdapter extends FirestoreRecyclerAdapter<EditorChoiceListIte
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.shopallitem, parent, false);
 
-        return new EditorChoiceViewHolder(view);
+        return new EditorChoiceViewHolder(view) ;
     }
 
-    public static class EditorChoiceViewHolder extends RecyclerView.ViewHolder {
+    public class EditorChoiceViewHolder extends RecyclerView.ViewHolder{
         ImageView productImage;
-        TextView ProductName, Branch, Semester, OrignalPrice, SellingPrice;
-
+        TextView ProductName,Branch,Semester,OrignalPrice,SellingPrice;
         public EditorChoiceViewHolder(@NonNull View itemView) {
             super(itemView);
-            productImage = itemView.findViewById(R.id.e_c_productimage);
-            ProductName = itemView.findViewById(R.id.e_c_product_name);
-            Branch = itemView.findViewById(R.id.e_c_branch_name);
-            Semester = itemView.findViewById(R.id.e_c_semester);
-            OrignalPrice = itemView.findViewById(R.id.e_c_orignalprice);
-            SellingPrice = itemView.findViewById(R.id.e_c_offerprice);
-
-
+            productImage=itemView.findViewById(R.id.e_c_productimage);
+            ProductName=itemView.findViewById(R.id.e_c_product_name);
+            Branch=itemView.findViewById(R.id.e_c_branch_name);
+            Semester=itemView.findViewById(R.id.e_c_semester);
+            OrignalPrice=itemView.findViewById(R.id.e_c_orignalprice);
+            SellingPrice=itemView.findViewById(R.id.e_c_offerprice);
         }
-
-
     }
+
+
+
+
+
+
 }
