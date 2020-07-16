@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@color/cardbg_background"
     android:elevation="3dp">
 
@@ -11,93 +11,94 @@
         android:layout_width="350dp"
         android:layout_height="90dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="31dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:layout_width="350dp"
-        android:layout_height="90dp"
-        android:layout_marginBottom="399dp"
-
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/product_image"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
-            android:background="#FFDCBC"
-            android:src="@drawable/book"></ImageView>
-
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:id="@+id/linearLayout6"
+            android:layout_width="350dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="399dp"
 
-            <TextView
-                android:id="@+id/product_title"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/product_image"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:background="#FFDCBC"
+                android:src="@drawable/book"></ImageView>
+
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="22dp"
-                android:text="Aditya DBMS IT (sem 6)"
-                android:textColor="#4a4a4a"
-                android:textSize="18sp"></TextView>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/product_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="22dp"
+                    android:text="Aditya DBMS IT (sem 6)"
+                    android:textColor="#4a4a4a"
+                    android:textSize="18sp"></TextView>
+
+
+                <TextView
+                    android:id="@+id/product_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="3dp"
+                    android:text="RS 100/-"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
 
 
             <TextView
-                android:id="@+id/product_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="3dp"
-                android:text="RS 100/-"
-                android:textColor="#000000"
-                android:textSize="15sp"
+                android:id="@+id/product_quantity"
+                android:layout_width="50dp"
+
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="33dp"
+                android:background="@drawable/border4"
+                android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+                android:gravity="center"
+                android:text="  X2"
+                android:textColor="#00C853"
+                android:textSize="15dp"
                 android:textStyle="bold"></TextView>
+
+            <ImageView
+                android:id="@+id/remove_product"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginTop="-2dp"
+                android:src="@drawable/ic_baseline_cancel_24"></ImageView>
+
+
         </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/product_quantity"
-            android:layout_width="50dp"
-
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="33dp"
-            android:background="@drawable/border4"
-            android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
-            android:gravity="center"
-            android:text="  X2"
-            android:textColor="#00C853"
-            android:textSize="15dp"
-            android:textStyle="bold"></TextView>
-
-        <ImageView
-            android:id="@+id/remove_product"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="-5dp"
-            android:layout_marginTop="-2dp"
-            android:src="@drawable/ic_baseline_cancel_24"></ImageView>
-
-
-    </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

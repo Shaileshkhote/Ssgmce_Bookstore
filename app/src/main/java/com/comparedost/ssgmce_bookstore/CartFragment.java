@@ -2,63 +2,139 @@ package com.comparedost.ssgmce_bookstore;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.content.ContentValues.TAG;
+
 public class CartFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FirebaseFirestore fstore;
+    private FirebaseDatabase  mydb;
+    private FirebaseAuth mauth;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    String Currentuser;
 
-    public CartFragment() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CartFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CartFragment newInstance(String param1, String param2) {
-        CartFragment fragment = new CartFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    ArrayList<CartItemModel> list = new ArrayList<>();
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+
+
+
+    RecyclerView.Adapter adapter;
+
+    RecyclerView cartrecyclerView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false);
+        View view=inflater.inflate(R.layout.fragment_cart, container, false);
+
+        cartrecyclerView=view.findViewById(R.id.cartrecycler);
+        mauth=FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
+        Currentuser=mauth.getCurrentUser().getUid();
+        mydb=FirebaseDatabase.getInstance();
+        DatabaseReference   myref=mydb.getReference("Users").child(Currentuser);
+        adapter=new CartAdapter(list);
+
+        cartrecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        cartrecyclerView.setItemAnimator(new DefaultItemAnimator());
+        cartrecyclerView.addItemDecoration(new DividerItemDecoration(cartrecyclerView.getContext(), DividerItemDecoration.VERTICAL));
+
+
+
+        try{
+
+            myref.child("My_Cart").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    for(DataSnapshot  d:dataSnapshot.getChildren()){
+
+                        String id=d.getKey();
+                        Log.e(TAG, "onEvent: "+ id);
+
+                         DocumentReference documentReference =fstore.collection("Products").document(id);
+
+                        documentReference.addSnapshotListener( new EventListener<DocumentSnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+
+                                String Booktitle=documentSnapshot.getString("Book_Title" );
+
+                                Log.e(TAG, "onEvent: "+ Booktitle);
+                                CartItemModel obj=new CartItemModel();
+
+
+                                obj.setBook_Title(documentSnapshot.getString("Book_Title"));
+                                obj.setPhotoURL(documentSnapshot.getString("PhotoURL"));
+                                obj.setSelling_Price(documentSnapshot.getString("Selling_Price"));
+
+                                list.add(obj);
+
+                                cartrecyclerView.setAdapter(adapter);
+
+
+
+                            }
+                        });
+
+
+                        }
+
+
+
+                    }
+
+
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+
+
+
+
+            });
+
+        }catch (NullPointerException e){}
+
+
+
+
+
+        return view;
     }
 }
