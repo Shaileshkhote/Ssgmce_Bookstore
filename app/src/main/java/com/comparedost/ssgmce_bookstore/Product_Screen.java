@@ -1,5 +1,6 @@
 package com.comparedost.ssgmce_bookstore;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -28,6 +34,7 @@ public class Product_Screen extends AppCompatActivity {
     String userid,docRef;
     FirebaseAuth fauth;
     FirebaseFirestore fstore;
+    private FirebaseDatabase mydb;
 
 
 
@@ -50,6 +57,13 @@ public class Product_Screen extends AppCompatActivity {
         wishlist=findViewById(R.id.wishlist);
         Add_to_cart=findViewById(R.id.Add_to_cart);
         imageButton2=findViewById(R.id.imageButton2);
+        fauth=FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
+
+        userid=fauth.getCurrentUser().getUid();
+        mydb=FirebaseDatabase.getInstance();
+        DatabaseReference myref=mydb.getReference("Users");
+        final DatabaseReference liveuser=myref.child(userid);
 
         Intent i=getIntent();
         Bundle extras=i.getExtras();
@@ -79,14 +93,22 @@ public class Product_Screen extends AppCompatActivity {
         Add_to_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Product_Screen.this, "Added to cart", Toast.LENGTH_SHORT).show();
+                liveuser.child("My_Cart").child(docRef).setValue(docRef).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(Product_Screen.this, "Added to cart", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
+
+
+
             }
         });
 
-        fauth=FirebaseAuth.getInstance();
-        fstore=FirebaseFirestore.getInstance();
 
-        userid=fauth.getCurrentUser().getUid();
 
         DocumentReference documentReference =fstore.collection("Products").document(docRef);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
